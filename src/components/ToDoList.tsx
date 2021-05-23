@@ -9,7 +9,19 @@ type TodoListProps = {
   onRemove: (id: number) => void
 }
 
-export const ToDoList: React.FC<TodoListProps> = ({ todos, onRemove, onToggle }) => {
+export const ToDoList: React.FC<TodoListProps> = ({
+    todos,
+    onRemove,
+    onToggle
+    }) => {
+  if (todos.length === 0) {
+      return <p className="center">Nothing to do!</p>  
+  }
+  const removeHandler = (event: React.MouseEvent, id:number) => {
+    event.stopPropagation()
+    onRemove(id)
+  }
+
   return (
     <ul>
       {todos.map(todo => {
@@ -23,7 +35,7 @@ export const ToDoList: React.FC<TodoListProps> = ({ todos, onRemove, onToggle })
               <input type="checkbox" checked={todo.completed} onChange={onToggle.bind(null, todo.id)} />
               <span>{todo.title}</span>
               <i className="material-icon red-text"
-                onClick={() => onRemove(todo.id)}
+                onClick={event => removeHandler(event, todo.id)}
               >
                 delete</i>
           </label>

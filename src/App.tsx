@@ -26,6 +26,10 @@ const App: React.FunctionComponent = () => {
     }))
   }
   const removeHandler = (id: number) => {
+    const shoudRemove = window.confirm("Are you sure, you want to delete?")
+    if (shoudRemove) {
+      setTodos(prev => prev.filter(todo => todo.id !==id))
+    }
     setTodos(prev => prev.filter(todo => todo.id !== id))
   }
   
