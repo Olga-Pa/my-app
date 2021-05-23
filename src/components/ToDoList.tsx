@@ -1,7 +1,5 @@
-import classes from '*.module.sass';
-import React from 'react';
-import { ITodo } from '../interfaces';
-
+import React from 'react'
+import { ITodo } from '../interfaces'
 
 type TodoListProps = {
   todos: ITodo[]
@@ -10,14 +8,15 @@ type TodoListProps = {
 }
 
 export const ToDoList: React.FC<TodoListProps> = ({
-    todos,
-    onRemove,
-    onToggle
-    }) => {
+  todos,
+  onRemove,
+  onToggle
+}) => {
   if (todos.length === 0) {
-      return <p className="center">Nothing to do!</p>  
+    return <p className="center">Nothing to do!!!</p>
   }
-  const removeHandler = (event: React.MouseEvent, id:number) => {
+
+  const removeHandler = (event: React.MouseEvent, id: number) => {
     event.preventDefault()
     onRemove(id)
   }
@@ -29,16 +28,23 @@ export const ToDoList: React.FC<TodoListProps> = ({
         if (todo.completed) {
           classes.push('completed')
         }
+
         return (
           <li className={classes.join(' ')} key={todo.id}>
-          <label>
-              <input type="checkbox" checked={todo.completed} onChange={onToggle.bind(null, todo.id)} />
+            <label>
+              <input
+                type="checkbox"
+                checked={todo.completed}
+                onChange={onToggle.bind(null, todo.id)}
+              />
               <span>{todo.title}</span>
-              <i className="material-icon red-text"
+              <i
+                className="material-icons red-text"
                 onClick={event => removeHandler(event, todo.id)}
               >
-                delete</i>
-          </label>
+                delete
+              </i>
+            </label>
           </li>
         )
       })}

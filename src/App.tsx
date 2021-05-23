@@ -38,7 +38,7 @@ const App: React.FunctionComponent = () => {
   }
 
   const removeHandler = (id: number) => {
-    const shoudRemove = window.confirm('Вы уверены, что хотите удалить элемент?')
+    const shoudRemove = window.confirm('Are you sure you want to delet the element?')
     if (shoudRemove) {
       setTodos(prev => prev.filter(todo => todo.id !== id))
     }
