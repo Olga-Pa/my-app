@@ -5,14 +5,16 @@ import { TodoForm } from './components/ToDoForm';
 const App: React.FunctionComponent = () => {
   const [todos, setTodos] = useState([])
   const addHandler = (title: string) => {
-
   }
-  return <>
+
+  return (
+  <>
     <Navbar></Navbar>
     <div className="container">
-    <TodoForm></TodoForm>
+    <TodoForm onAdd={addHandler}></TodoForm>
     </div>
    </>
+  )
 }
 
 export default App;
