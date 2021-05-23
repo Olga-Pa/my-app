@@ -18,7 +18,7 @@ export const ToDoList: React.FC<TodoListProps> = ({
       return <p className="center">Nothing to do!</p>  
   }
   const removeHandler = (event: React.MouseEvent, id:number) => {
-    event.stopPropagation()
+    event.preventDefault()
     onRemove(id)
   }
 

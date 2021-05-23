@@ -25,12 +25,23 @@ const App: React.FunctionComponent = () => {
         return todo
     }))
   }
+
+  const toggleHandler = (id: number) => {
+    setTodos(prev =>
+      prev.map(todo => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed
+        }
+        return todo
+      })
+    )
+  }
+
   const removeHandler = (id: number) => {
-    const shoudRemove = window.confirm("Are you sure, you want to delete?")
+    const shoudRemove = window.confirm('Вы уверены, что хотите удалить элемент?')
     if (shoudRemove) {
-      setTodos(prev => prev.filter(todo => todo.id !==id))
+      setTodos(prev => prev.filter(todo => todo.id !== id))
     }
-    setTodos(prev => prev.filter(todo => todo.id !== id))
   }
   
   return (
