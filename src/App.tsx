@@ -16,13 +16,29 @@ const App: React.FunctionComponent = () => {
     //setTodos([newTodo, ...todos])
     setTodos(prev => [newTodo, ...prev])
   }
-
+  const toggleHandle = (id: number) => {
+    setTodos(prev =>
+      prev.map(todo => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed
+        }
+        return todo
+    }))
+  }
+  const removeHandler = (id: number) => {
+    setTodos(prev => prev.filter(todo => todo.id !== id))
+  }
+  
   return (
   <>
     <Navbar></Navbar>
     <div className="container">
         <TodoForm onAdd={addHandler}></TodoForm>
-        <ToDoList todos={todos}></ToDoList>
+        <ToDoList
+          todos={todos}
+          onToggle={toggleHandle}
+          onRemove={removeHandler} >
+        </ToDoList>
     </div>
    </>
   )
