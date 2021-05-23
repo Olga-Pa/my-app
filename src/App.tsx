@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Navbar } from './components/navbar';
 import { TodoForm } from './components/ToDoForm';
-import { ToDoList } from './components/ToDoList';
+import { ToDoList } from './components/TodoList';
 import { ITodo } from './interfaces';
 
 declare var confirm: (question: string) => boolean
