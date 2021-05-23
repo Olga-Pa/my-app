@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Navbar } from './components/navbar';
-import { Todo } from './components/ToDoForm';
+import { TodoForm } from './components/ToDoForm';
 
 const App: React.FunctionComponent = () => {
+  const [todos, setTodos] = useState([])
+  const addHandler = (title: string) => {
+
+  }
   return <>
     <Navbar></Navbar>
     <div className="container">
-     <Todo></Todo>
+    <TodoForm></TodoForm>
     </div>
    </>
 }
