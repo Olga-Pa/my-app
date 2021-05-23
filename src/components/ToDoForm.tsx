@@ -20,8 +20,6 @@ export const TodoForm: React.FC<TodoFormProps> = props => {
     }
   }
 
-
-
     return (
       <div className="Input-file">
         <label htmlFor="title" className="active mf2">What do  you want to do?</label>
