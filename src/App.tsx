@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Navbar } from './components/navbar';
-import { TodoForm } from './components/ToDoForm';
-import { ToDoList } from './components/TodoList';
+import { TodoForm } from './components/TodoForm';
+import { TodoList } from './components/TodoList';
 import { ITodo } from './interfaces';
 
 declare var confirm: (question: string) => boolean
@@ -60,11 +60,11 @@ const App: React.FunctionComponent = () => {
     <Navbar></Navbar>
     <div className="container">
         <TodoForm onAdd={addHandler}></TodoForm>
-        <ToDoList
+        <TodoList
           todos={todos}
           onToggle={toggleHandle}
           onRemove={removeHandler} >
-        </ToDoList>
+        </TodoList>
     </div>
    </>
   )

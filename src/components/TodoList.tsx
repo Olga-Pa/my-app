@@ -7,7 +7,7 @@ type TodoListProps = {
   onRemove: (id: number) => void
 }
 
-export const ToDoList: React.FC<TodoListProps> = ({
+export const TodoList: React.FC<TodoListProps> = ({
   todos,
   onRemove,
   onToggle
