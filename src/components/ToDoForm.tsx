@@ -2,9 +2,18 @@ import React, {useState} from 'react';
 
 export const Todo: React.FC = () => {
   const [title, setTitle] = useState<string>('')
+
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value)
   }
+
+  const keyPressHander = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter") {
+      setTitle('')
+      console.log({changeHandler})
+    }
+  }
+
   return (
     <div className="Input-file">
       <label htmlFor="title" className="active mf2">What do  you want to do?</label>
@@ -13,7 +22,8 @@ export const Todo: React.FC = () => {
         value={title}
         type="text"
         id="title"
-        placeholder="what do you want to do">
+        placeholder="what do you want to do"
+        onKeyPress={keyPressHander}>
         </input>
 
     </div>
