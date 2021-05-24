@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Navbar } from './components/navbar';
-import { TodoForm } from './components/TodoForm';
+import { ToDoForm } from './components/ToDoForm';
 import { TodoList } from './components/TodoList';
 import { ITodo } from './interfaces';
 
@@ -59,7 +59,7 @@ const App: React.FunctionComponent = () => {
   <>
     <Navbar></Navbar>
     <div className="container">
-        <TodoForm onAdd={addHandler}></TodoForm>
+        <ToDoForm onAdd={addHandler}></ToDoForm>
         <TodoList
           todos={todos}
           onToggle={toggleHandle}
